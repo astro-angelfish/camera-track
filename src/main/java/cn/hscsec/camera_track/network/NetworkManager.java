@@ -15,7 +15,7 @@ public class NetworkManager {
         this.channel.registerMessage(0, CameraPosPacket.class, CameraPosPacket::encode, CameraPosPacket::decode, CameraPosPacket::handle, Optional.of(NetworkDirection.PLAY_TO_SERVER));
     }
 
-    public void sendPos(Vec3 pos) {
-        this.channel.sendToServer(new CameraPosPacket(pos));
+    public void sendPos(Vec3 pos, float rotX, float rotY) {
+        this.channel.sendToServer(new CameraPosPacket(pos, rotX, rotY));
     }
 }
